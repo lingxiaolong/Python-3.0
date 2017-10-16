@@ -1,0 +1,56 @@
+"""
+1 列表，元组
+"""
+'''
+1.
+names = ["Zhangsan","Lisi","Wangwu","Zhaoliu"]
+print(names)
+print("取第一个名字：",names[0])
+print(names[1:3])   #起始位置包括，结束位置不包括-----切片
+print(names[-1])    #取最后一个位置
+print(names[-2:])   #取最后的值 -2开始到最后结束
+print(names[:2])
+print(names[0:2])
+'''
+'''
+names = ["Zhangsan","Lisi","Wangwu","Zhaoliu"]
+names.append("lingxiao")    #追加
+names.insert(0,"ling")  #插入某一个位置前面
+names.insert(3,"zhiying")
+print(names)
+'''
+'''
+names = ["Zhangsan","Lisi","Wangwu","Zhaoliu"]
+names[2]="xiaolong" #替换
+print(names)
+'''
+'''
+names = ["Zhangsan","Lisi","Wangwu","Zhaoliu"]
+names.remove("Lisi")    #直接删除位置
+del names[0]    #删除位置的下标
+names.pop() #删除最后一个
+print(names)
+'''
+'''
+names = ["Zhangsan","Lisi","Wangwu","Zhaoliu"]
+print(names.index("Lisi"))  #取下标
+print(names[names.index("Zhangsan")])   #嵌套使用
+'''
+'''
+names = ["Zhangsan","Lisi","Wangwu","Zhaoliu","Wangwu","Zhaoliu"]
+print(names.count("Zhaoliu"))   #计数重复的个数
+names.reverse()     #反转顺序
+print(names)
+names.sort()    #排序,安装ASIC码里面的来排序
+print(names)
+names2 = [1,2,3,4,]
+names.extend(names2)    #合并到一个列表
+print(names)
+names.clear()   #清空
+'''
+'''
+names = ["Zhangsan","Lisi","Wangwu","Zhaoliu","Wangwu","Zhaoliu"]
+names2 = [1,2,3,4]
+names.extend(names2)    #合并列表
+print(names)
+'''
