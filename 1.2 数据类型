@@ -1,3 +1,4 @@
+#16/10/2017
 """
 1 列表，元组
 """
@@ -54,3 +55,108 @@ names2 = [1,2,3,4]
 names.extend(names2)    #合并列表
 print(names)
 '''
+
+#17/10/2017
+'''
+names = ["Zhangsan","Lisi",["xiaolong","ling"],"Wangwu","Zhaoliu","Wangwu","Zhaoliu"]
+names2 = names.copy()   #浅copy，复制第一层的内存地址了，下一层不会copy,
+print(names)
+print(names2)
+names[0]="张三"
+#names[2][0]="小龙"
+print(names)
+print(names2)
+'''
+#深COPY
+'''
+import copy
+names = ["Zhangsan","Lisi",["xiaolong","ling"],"Wangwu","Zhaoliu","Wangwu","Zhaoliu"]
+names2 = copy.deepcopy(names)
+names[0] = "张三"
+print(names)
+print(names2)
+'''
+#切片
+'''
+names = ["Zhangsan","Lisi",["xiaolong","ling"],"Wangwu","Zhaoliu","Wangwu","Zhaoliu"]
+print(names[0:-1:2])    #开始到结束，每隔两个切片,-1代表最后
+print(names[::2])  #代表最后一个但是不包括最后一个，每隔两个切片
+#range(1,10,2)   #1-10,每隔两个显示
+#for i in names:
+#   print(i)
+'''
+'''
+names = [1,2,3,4,5,6,7,1,2,3,1,2,3]
+print(names[0:-1:2])
+print(names[::2])   #所有的切片是顾头不顾尾
+'''
+#浅copy使用：比如两个人有共同的属性。用来创建这种两个帐号。
+"""
+import copy
+person=['name',['gongzi','1w']]
+'''p1=copy.copy(person)    
+p2=person[:]
+p3=list(person)
+'''
+p1=person[:]
+p2=person[:]
+p1[0]='zzy'
+p2[0]='lxl'
+p1[1][1]=100
+print(p1)
+print(p2)
+"""
+#元组tuple
+'''
+names = ('zsan','lisi')   #只能查，不可变。两个方法count和index
+'''
+#简单购物车
+#salary 英 [ˈsæləri] n.薪水，薪金，薪俸 ,工资
+#digit 英[ˈdɪdʒɪt]n.数字
+product_list=[
+    ["iphone","5888",],
+    ["ipad","488",],
+    ["mac pro","8888",],
+    ["iwatch","6888",],
+    ["bike","3888",],
+    ["python book","88"]
+]
+shopping_cart=[]
+w_msg = "Welcome to My Shop"
+print(w_msg.center(50,"-"))
+salary=input("Please input your salary:")
+if salary.isdigit():
+    salary=int(salary)
+    while True:
+#取下标，两种方法：
+#        for item in product_list:
+#            print(product_list.index(item),item)
+#item 项目，项，条款，一件商品（物品）
+       for index,item in enumerate(product_list):
+           print(index,item)
+       user_choice = input("请输入你要购买的商品编号：")
+       if user_choice.isdigit():
+            user_choice=int(user_choice)
+            if user_choice < len(product_list) and user_choice >= 0 :
+                p_item = product_list[user_choice]
+                print(p_item)
+# len() 方法返回对象（字符、列表、元组等）长度或项目个数
+#定义一个变量p_item为商品列表product_list的编号
+                if int(p_item[1]) <= salary:
+                    shopping_cart.append(p_item)
+                    salary -= int(p_item[1])
+                    print("Added %s into shopping cart,your current balance is \033[31;1m %s\033[0m" % (p_item, salary) )
+                else:
+                    print("\033[41;1m你的余额只剩[%s]啦，你还买个毛线啊\033[0m" % salary)
+            else:
+                print("您购买的商品 [%s] 不存在！请重新选择," %user_choice)
+       elif user_choice == 'q':
+           q_msg="按q退出，谢谢!"
+           print(q_msg.center(50,'-'))
+           for p in shopping_cart:
+               print(p)
+           print("您的月是:[%s]"%salary)
+           exit()
+       else:
+           print("您输入的工资无效！invalid options...")
+
