@@ -160,3 +160,66 @@ if salary.isdigit():
        else:
            print("您输入的工资无效！invalid options...")
 
+
+#18/10/2017
+#字符串常用操作
+'''
+name = "lingxiao\tlong,my name is {name} my age is  {year} old !"
+print(name.capitalize())
+#首字母大写
+print(name.count("l"))
+#统计字符串里面有多少个字母等
+print(name.center(50,'-'))
+#
+print(name.encode())
+#把字符串转为二进制
+print(name.endswith('g'))
+#判断一个字符串以什么结尾
+print(name.expandtabs(tabsize=10))
+#tab键
+print(name.find('xiao'))
+#查找字符串在什么位置,字符的下标
+print(name.format(name='xiaolong',year='25'))
+print('123abc'.isalpha())
+#判断是否是阿拉伯字母
+print('123abc'.isalpha())
+#判断是否是纯英文字母
+print('123'.isdecimal())
+#判断是否是十进制
+print('123abc'.isdigit())
+#判断是否是一个整数
+print('_123abc'.isidentifier())
+#判断是否是一个合法的标识符（变量名）
+print("abc".islower())
+#判断是否是小写
+print('123'.isnumeric())
+#判断是否是数字，整数，
+print('  '.isspace())
+#判断是否是一个空格
+print('123@qq.com'.join("=="))
+print('+'.join(['1','2','3']))
+print(''.join(['1','2','3']))
+#可以将列表转换为字符串
+print(name.ljust(50,'*'))
+print(name.rjust(50,'&'))
+#
+print('\nXiaolong'.lstrip())
+print('Xiaolong\n'.rstrip())
+print('   Xiaolong\n'.strip())
+#去除空格
+p = str.maketrans("abcdefjh","12345678")
+print("xalfjc".translate(p))
+#转换
+print('xiaolong'.replace('o','O',1))
+print('xiaolong'.replace('o','O',2))
+print('xiaolong'.rfind('o'))
+#替换
+print('xiao long'.split(' '))
+print('Xiaolong Ling'.splitlines())
+#可以将字符串转变为列表
+print('Xiaolong Ling'.swapcase())
+#
+print('ling xiaolong'.title())
+#设置标题
+'''
+#字典
