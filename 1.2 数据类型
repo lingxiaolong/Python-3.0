@@ -223,3 +223,191 @@ print('ling xiaolong'.title())
 #设置标题
 '''
 #字典
+#18/10/2017
+#字符串常用操作
+'''
+name = "lingxiao\tlong,my name is {name} my age is  {year} old !"
+print(name.capitalize())
+#首字母大写
+print(name.count("l"))
+#统计字符串里面有多少个字母等
+print(name.center(50,'-'))
+#
+print(name.encode())
+#把字符串转为二进制
+print(name.endswith('g'))
+#判断一个字符串以什么结尾
+print(name.expandtabs(tabsize=10))
+#tab键
+print(name.find('xiao'))
+#查找字符串在什么位置,字符的下标
+print(name.format(name='xiaolong',year='25'))
+print('123abc'.isalpha())
+#判断是否是阿拉伯字母
+print('123abc'.isalpha())
+#判断是否是纯英文字母
+print('123'.isdecimal())
+#判断是否是十进制
+print('123abc'.isdigit())
+#判断是否是一个整数
+print('_123abc'.isidentifier())
+#判断是否是一个合法的标识符（变量名）
+print("abc".islower())
+#判断是否是小写
+print('123'.isnumeric())
+#判断是否是数字，整数，
+print('  '.isspace())
+#判断是否是一个空格
+print('123@qq.com'.join("=="))
+print('+'.join(['1','2','3']))
+print(''.join(['1','2','3']))
+#可以将列表转换为字符串
+print(name.ljust(50,'*'))
+print(name.rjust(50,'&'))
+#
+print('\nXiaolong'.lstrip())
+print('Xiaolong\n'.rstrip())
+print('   Xiaolong\n'.strip())
+#去除空格
+p = str.maketrans("abcdefjh","12345678")
+print("xalfjc".translate(p))
+#转换
+print('xiaolong'.replace('o','O',1))
+print('xiaolong'.replace('o','O',2))
+print('xiaolong'.rfind('o'))
+#替换
+print('xiao long'.split(' '))
+print('Xiaolong Ling'.splitlines())
+#可以将字符串转变为列表
+print('Xiaolong Ling'.swapcase())
+#
+print('ling xiaolong'.title())
+#设置标题
+'''
+
+#23/10/2017
+#字典:是一种key-value的数据类型，字典是无序的，key必须是唯一的
+#没有下标，通过key去寻找，是无序的。
+'''
+info={
+    'stu001':'xiaolong',
+    'stu002':'ming',
+    'stu003':'wu'
+}
+'''
+#查
+'''
+print(info)
+print(info['stu001'])
+'''
+#修改,增加
+'''
+info['stu001']="小龙"
+info['stu004']="小红"
+print(info['stu001'])
+print(info)
+'''
+#删除
+'''
+del info["stu001"]
+info.pop("stu002")#标准的删除
+info.popitem()#随机删除
+print(info)
+'''
+#查找
+'''
+
+print(info['stu003'])#如果一个key不存在，就报错，get不会，不存在只返回None
+print(info.get('stu005'))#获取
+print('stu004' in info)#标准用法
+'''
+#多级字典嵌套及操作
+'''
+info2 ={
+    "山西":{
+            '太原':['小店区','迎泽区'],
+            '大同':['南郊区','大同县']
+    },
+    "山东":{
+            '青岛':['市南区','市北区'],
+            '济南':['天桥区','历下区']
+    },
+    "河北":{
+            '石家庄':['正定县','栾城区'],
+            '张家口':['桥西区','宣化区']
+    }
+}
+#字典--->字典--->列表
+print(info2)
+print(info2['山西']['大同'][0])
+print(info2.keys())#查看字典的Keys
+print(info2.values())#查看字典的值
+print(info2)
+#循环字典
+#方法1
+for key in info:
+    print(key,info[key])
+
+#方法2
+for k,v in info.items(): #会先把dict转成list,数据里大时莫用
+    print(k,v)
+'''
+#三级菜单
+#   1.打印省、市、县三级菜单
+#   2.可返回上一级
+#   3.可随时退出程序
+#简单三级菜单
+info ={
+    "山西":{
+            '太原':{
+                    '迎泽区':['东峰路','朝阳街'],
+                    '小店区':['南中环街','太榆路']
+            },
+            '大同':{
+                    '南郊区':['同泉路','榆林路'],
+                    '大同县':['天黎高速','s202']
+            }
+    },
+    "山东":{
+            '青岛':{
+                '市南区':['延安三路','香港中路'],
+                '市北区':['瑞昌路','杭州路']
+            },
+            '济南':{
+                '天桥区':['建邦黄河大桥','济广高速'],
+                '历下区':['窑头路','经十路']
+            }
+    },
+    "河北":{
+            '石家庄':{
+                '正定县':['新城大道','车站南大街'],
+                '栾城区':['河北实验中学','河北传媒学院']
+            },
+            '张家口':{
+                '桥西区':['植物园','清泉花园'],
+                '宣化区':['人民公园','洋河']
+            }
+    }
+}
+while True:
+    for i01 in info:
+        print(i01)
+    choice01 = input("请输入省份：")
+    if choice01 in info:
+        for i02 in info[choice01]:
+            print(i02)
+        choice02 = input("请输入城市：")
+        if choice02 in info[choice01]:
+            for i03 in info[choice01][choice02]:
+                print(i03)
+            choice03 = input("请输入地区：")
+            if choice03 in info[choice01][choice02]:
+                for i04 in info[choice01][choice02][choice03]:
+                    print('\t',i04)
+                    pass
+            elif choice03 == 'q':
+                break
+        elif choice03 == 'q':
+            break
+    elif choice02 == 'q':
+        break
