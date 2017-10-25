@@ -411,3 +411,102 @@ while True:
             break
     elif choice02 == 'q':
         break
+
+
+#24/10/2017
+#集合：是一个无序的，不重复的数据组合，没有插入，只能添加
+'''
+list01 = [1,3,2,4,8,9,7,5,6,4,3]
+list01 = set(list01)#排序
+list02 = [2,8,7,9,11,22,33]
+list02 = set(list02)
+list03 = [1,3,2,4,8,9,7,5,6,4,32,8,7,9,11,22,33]
+print(list01,list02)
+print(list01.intersection(list02))#取交集
+print(list01 & list02)
+print(list01.union(list02))#取并集
+print(list01 | list02)
+print(list01.difference(list02))#取差集（把list01里面有的list02里面没有的取出来）
+print(list01 - list02)
+print(list01.issubset(list02))#判断是否是子集subset
+print(list01.issubset(list02))#判断是否是父集upperset
+print(list01.issubset(list03))#
+print(list01.symmetric_difference(list02))#取反向差集，就是把两个列表里面互相没有的取出来。
+print(list01 ^ list02)
+print(list01.isdisjoint(list02))#判断是否有交集,有为false没有为true
+'''
+'''
+list01 = [1,3,2,4,8,9,7,5,6,4,3]
+list01 = set(list01)
+list02 = [2,8,7,9,11,22,33]
+list02 = set(list02)
+
+list01.add(999)
+list02.update([100,200,300])
+print(list01)
+print(list02)
+print(3 in list01) #判断判断3是否是list的成员（列表，元组，字典，字符串，都是这么写）
+print(3 not in list02)
+
+list01.pop()#随机删除一个数
+list02.remove(9)#指定删除一个值（如果删除的值不存在会报错）
+list02.discard(100)#指定删除一个值（删除的值不存在不会报错）
+print(list01)
+print(list02)
+'''
+
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# Auth:doudou Mail:312118551@qq.com
+
+
+#文件操作
+#f = open('geci',encoding="utf-8").read()
+'''
+#读
+f = open('geci',encoding="utf-8")#文件句柄，文件大小，位置
+data = f.read()#读一遍之后就没有了
+data2 = f.read()#光标到了最后了。再往下就没有内容了。
+print(data)
+print("---data2---", data2)
+'''
+'''
+#写
+f = open("geci","w",encoding="utf-8")#这个“w”是创建一个文件,如果有用‘w’会把原有的文件删除，并创建一个新文件
+f.write("黑色幽默,\n")#换行符
+f.write("周杰伦")
+'''
+#追加
+'''
+f = open("geci","a",encoding="utf-8")#append追加的意思
+f.write("黑色幽默,\n")#换行符
+f.write("周杰伦\n")
+f.write("一盏黄黄旧旧的灯 时间在旁闷不吭声")
+f.close()
+'''
+#读前五行
+#f = open("geci","r",encoding="utf-8")
+#for i in range(5):
+#    print(f.readline())
+#print(f.readlines())
+#for line in f.readlines():
+#    print(line)
+#    print(line.strip())#去掉空格和换行等
+'''
+#循环
+for index,line in enumerate(f.readlines()):#只适合读小文件
+    if index == 9:
+        print("--------------------")
+        continue
+    print(line.strip())
+'''
+'''
+count = 0
+for line in f:  #一行一行读，内存里面只保存一行
+    if count ==5:
+        print("-----------")
+        count +=1
+        continue
+    print(line)
+    count +=1
+'''
